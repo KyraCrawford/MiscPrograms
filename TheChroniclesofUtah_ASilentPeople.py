@@ -6,7 +6,15 @@ import time
 
 Inv = []
 if Inv == []:
-    print('\n| Your inventory is currently empty |\n')
+    print('\n|Your inventory is currently empty|\n')
+
+def NoHelpStick():
+    print('You continue along the dirt path, keeping an eye out for strangers along the way.\n')
+    print('A large wooden gate stands before you. You look up to see a watchman gaze at you then open the gate.\n Behind which a small plaza with food stands and cloaked pedestrians bustles.\n')
+
+def HelpStick():
+    print('You continue along the dirt path, trying to forget the past 30 seconds of your life. ''Why the hell wasnt he wearing pants?''\n')
+    print('Anyway, as you reach a clearing in the bushland, a large lake sits, quiet and pleasant.\nA cool mist carresses your face, reminding you of a place you do not remember.')
 
 def TRANG():
     print('After walking for about 5 minutes, you notice a cloaked man sitting on a rock. You approach him for some direction.\n')
@@ -14,17 +22,24 @@ def TRANG():
     print('"Excuse me sir, do you know where the closest town is?", you inquire.\n')
     answer=input('The man replies with a groan, lifting his face from his wrinkly hands, "You arent from around here, I can smell it on you.\n You seem young, though. What do you say you help me out, then I tell you where to go?" (yes/no)\nYour reply: ')
     if answer== 'yes':
-        print('"Great! First, do you happen to have a stick or long object?"')
-        if Inv == ['| Stick |']:
+        print('"Great! But first, do you happen to have a stick or long object?"')
+        if '| Stick |' in Inv:
             print('"Yes, I do. I picked it up a few minutes ago."')
             print('"Okay, give it here.", the man snatches the stick from you and skimpers away into the brush. As he runs, you realize he was not wearing pants. Strange.\n')
             Inv.remove('| Stick |')
             print('\n')
-            tbc()
+            time.sleep(5)
+            HelpStick()
+        else:
+            print('"No, sorry. I did pass one just down the road, though. Its probably still there."\n')
+            print('"Okay whatever, thanks for nothing."\n')
+            print('You think nothing of his remarks, instead you assume he is a crabby old man who got lost going home.')
+            NoHelpStick()
+
     elif answer== 'no':
         print('"Okay then. Guess they dont teach manners where you come from. Probably an Ari, pfft."\n')
-        print('You are hurt by his remarks, although you do not truly understand them.')
-        tbc()
+        print('You are hurt by his remarks, although you do not truly understand them.\n')
+        NoHelpStick()
 
 def PickStick():
     answer= input('A stick lays in your path, would you like to pick it up? (yes/no)\n')
@@ -90,7 +105,7 @@ def tbc():
 
 while True:
     print('\n')
-    print('Welcome to The Chronicles of East Slandsgo: A Silent People! This is a text-based Choose Your Own Adventure Game.\n Keep in mind this is in development, so please be careful to follow instructions.\n')
+    print('Welcome to The Chronicles of Utah: A Silent People! This is a text-based Choose Your Own Adventure Game.\n Keep in mind this is in development, so please be careful to follow instructions.\n')
     answer = input('Would you like to play? (yes/no) ')
 
     if answer == 'yes':
